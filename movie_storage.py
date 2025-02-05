@@ -1,6 +1,8 @@
 import json
 import random
 
+
+"""This script is responsible for storing and managing movie data in a JSON file (movies.json)."""
 def load_movies():
     """The function ensures the program gracefully handles missing files, invalid JSON, or incorrect formats."""
     try:

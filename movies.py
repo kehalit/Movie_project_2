@@ -1,16 +1,16 @@
 import movie_storage
 import random
-
+"""This script provides user interface """
 
 def list_movies(movies_db):
     print(f'{len(movies_db)} movies in total')
-    for title, details in movies_db.items():
+    for title, details in movies_db.items(): #return as atuple
         print(f'{title}: Rating: {details["rating"]}, Year: {details["year"]}')
     input("\nPress Enter to continue ")
 
 
 def add_movie(movies_db):
-    title = input('Enter new movie name: ').strip()
+    title = input('Enter new movie name: ').strip() # to remove extra spaces
     # Check if the movie name is empty
     if not title:
         print('Movie name cannot be empty. Please try again.')
@@ -25,7 +25,7 @@ def add_movie(movies_db):
             # Prompt the user for the year of release
         year = int(input('Enter the year of release: '))
 
-        result = movie_storage.add_movie_to_db(movies_db, title, year, rating)
+        result = movie_storage.add_movie_to_db(movies_db, title, year, rating) #to store the movie in the database
         print(result)
 
     except ValueError:
@@ -65,8 +65,10 @@ def random_movie(movies_db):
 
 
 def main():
+    """the main function controls the menu system and user interachtion """
     print('********** My Movies Database **********')
-    movies = movie_storage.load_movies()
+    movies = movie_storage.load_movies() #loads exting movie data from movie_storage
+
 
     while True:
         print('Menu:')
